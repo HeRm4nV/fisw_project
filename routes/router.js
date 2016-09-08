@@ -1,8 +1,16 @@
 var express = require('express');
-var app= express();
+var app = express();
 
 app.get('/',function(req,res){
-    res.send('<h1> Hola Mundo </h1>');
+    res.render('index.html', {title: 'Mi primer Aplicacion Web'});
 });
 
-module.exports = app;
+app.get('/verUsuario',function(req,res){
+    res.redirect('/api/usuarios')
+});
+
+app.get('/crearUsuario',function(req,res){
+    res.render('CrearUsuario.html', {title: 'Registrar Usuarios'});
+});
+
+module.exports=app;
