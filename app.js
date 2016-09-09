@@ -16,8 +16,11 @@ app.use('/',require('./routes/router'));
 //Routes
 app.use('/api', require('./routes/api'));
 
-var server = app.listen(3000, function () {
-        var host = ip.address();
-        var port = server.address().port;
-        console.log('Este servidor pertenece a la ip %s y el puerto %s', host, port);
+//Start Server
+models.sequelize.sync().then(function () {
+	var server = app.listen(3000, function () {
+        	var host = ip.address();
+        	var port = server.address().port;
+        	console.log('Este servidor pertenece a la ip %s y el puerto %s', host, port);
+	});
 });
