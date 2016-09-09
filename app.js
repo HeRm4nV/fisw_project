@@ -2,6 +2,7 @@ var express = require('express');
 var ip = require('ip');
 var path = require('path');
 var mysql = require('mysql');
+var bodyParser = require('body-parser');
 
 var app= express();
 var Usuario= require('./models/usuario.js');
@@ -12,6 +13,10 @@ app.engine('html', require('ejs').renderFile);
 
 
 app.use('/',require('./routes/router'));
+
+//Express
+app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.json());
 
 //Routes
 app.use('/api', require('./routes/api'));

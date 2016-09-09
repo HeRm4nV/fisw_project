@@ -3,15 +3,6 @@ var path      = require("path");
 var Sequelize = require('sequelize');
 
 var opts = {
-    host: 'localhost',
-    dialect: 'mysql',
-
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    },
-
     define: {
         //prevent sequelize from pluralizing table names
         freezeTableName: true
